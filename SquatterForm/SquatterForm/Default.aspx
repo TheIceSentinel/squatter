@@ -2,41 +2,52 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+<div class="jumbotron">
+    <h1>DTP Application</h1>
+    <h2>Delinquent Tax Property Application</h2>
+    <p class="lead">
+        This is a private application not available to the public. It will allow the user to search for delinquent tax properties
+        based on the past 5 years of data from Dallas County Public record that was provided. Please use the filters below in order to narrow or broaden
+        your search criteria. You will then be able to transfer that data
+    </p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
+</div>
+<!--Filters-->
+<h2>Filters Will Go Here.</h2>
+<!--End of Filters-->
+<!-- Gridview for DTP Database -->
+<div class="jumbotron">
+    <h1>DTP Data</h1>
+    <p class="lead">Here is where you data will be displayed.</p>
+    
+        <asp:GridView ID="grdDTPData" runat="server"
+                      AutoGenerateColumns="False" 
+                      AutoGenerateRows="True"
+                      CssClass="table table-bordered table-striped table-condensed" AllowPaging="True">
+            <Columns>
+                <asp:BoundField DataField="OWNER" HeaderText="Owners Name" />
+                <asp:BoundField DataField="ADDRESS2" HeaderText="Address" ReadOnly="True" />
+                <asp:BoundField DataField="ADDRESS3" HeaderText="Alt Address" ReadOnly="True" />
+                <asp:BoundField DataField="CITY" HeaderText="City" ReadOnly="True" />
+                <asp:BoundField DataField="STATE" HeaderText="State" ReadOnly="True" />
+                <asp:BoundField DataField="ZIP" HeaderText="Zip Code" ReadOnly="True" />
+                <asp:BoundField DataField="ZIP-PLUS4" HeaderText="Zip Code +4" ReadOnly="True" />
+                <asp:BoundField DataField="ROLL-CODE" HeaderText="Property" ReadOnly="True" />
+                <asp:BoundField DataField="PARCEL NO" HeaderText="Parcel #" ReadOnly="True" />
+                <asp:BoundField DataField="PARCEL NAME" HeaderText="Parcel Name" ReadOnly="True" />
+                <asp:BoundField DataField="PAYMENT AGREEMENT" HeaderText="Payment Agreement" ReadOnly="True" />
+                <asp:BoundField DataField="TOT_AMT_DUE" HeaderText="Total Amt Due" ReadOnly="True" />
+                <asp:BoundField DataField="RATING" HeaderText="Rating" ReadOnly="True" />
+                <asp:BoundField DataField="GOOD AREA" HeaderText="Good Area" ReadOnly="True" />
+                <asp:BoundField DataField="BAD AREA" HeaderText="Bad Area" ReadOnly="True" />
+            </Columns>
+            <HeaderStyle BackColor="DarkOrange" ForeColor="White" Font-Bold="True" />
+            <RowStyle BackColor="White" ForeColor="Black" />
+            <SelectedRowStyle BackColor="Gray" ForeColor="White" Font-Bold="True" />
+            <FooterStyle BackColor="LightGray" ForeColor="Blue" />
+            <PagerStyle BackColor="DarkOrange" ForeColor="White" HorizontalAlign="Center" />
+        </asp:GridView>
+    
+</div>
 
 </asp:Content>
