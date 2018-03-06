@@ -13,13 +13,17 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
 </div>
 <!--Filters-->
-<h2>Refine your criteria using dropdown items below:</h2>
     <!-- This is a rough mock up, I figure we put the ten most desireable zip codes 
         Or something here to minimize all 115 of them, we can discuss this in class-->
-    <div class="form-group" style="width: 134px">
-        <label class="col-sm-3 control-label">Zip Code</label>
-            <div class="col-sm-4">
-                <asp:ListBox ID="lblZipCode" runat="server"  SelectionMode="Multiple" CssClass="form-control" AutoPostBack="True" Height="24px" Width="125px">
+<div class="panel panel-default">
+    <div class="panel-heading">Filters</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="col-sm-3">
+                <label class="control-label">Zip Code</label>
+                <asp:ListBox ID="lbZipCode" runat="server" 
+                    SelectionMode="Multiple" CssClass="form-control" 
+                    Rows="5" AutoPostBack="True">
                     <asp:ListItem>75390</asp:ListItem>
                     <asp:ListItem>75393</asp:ListItem>
                     <asp:ListItem>75394</asp:ListItem>
@@ -31,61 +35,48 @@
                     <asp:ListItem>75339</asp:ListItem>
                     <asp:ListItem>75342</asp:ListItem>
                     <asp:ListItem>75354</asp:ListItem>
-                 </asp:ListBox>
+                </asp:ListBox>
             </div>
-        </div>
-    <!-- Starting here I want to spread these fields out across the screen, need help remembering, so they
-        won't be stacked in our application -->
-    <!--We Could make this a range validator want groups opinion-->
-       <div class="form-group" style="width: 130px">
-            <label class="col-sm-3 control-label">Total Amount Due</label>
-                <div class="col-sm-4">
-
-
-                <asp:DropDownList ID="ddlTotalAmountDue" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
+            
+            <!-- Starting here I want to spread these fields out across the screen, need help remembering, so they
+                won't be stacked in our application -->
+            <!--We Could make this a range validator want groups opinion-->
+            <div class="col-sm-3">
+                <label class="control-label">Total Amount Due</label>
+                <asp:DropDownList ID="ddlTotalAmountDue" runat="server" 
+                    CssClass="form-control" AutoPostBack="True">
                     <asp:ListItem>Less than $20,000</asp:ListItem>
                     <asp:ListItem>Less than $40,000</asp:ListItem>
                     <asp:ListItem>Less than $50,000</asp:ListItem>
                     <asp:ListItem>Greater than $50,000</asp:ListItem>
                 </asp:DropDownList>
             </div>
-          </div>
 
-    <!-- This is a simple indicator YES, OR NO -->
-        <div class="form-group" style="width: 134px">
-            <label class="col-sm-3 control-label">Payment Agreement</label>
-            <div class="col-sm-4">
-                <asp:DropDownList ID="ddlPaymentAgreement" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
-                    <asp:ListItem>YES</asp:ListItem>
-                    <asp:ListItem>NO</asp:ListItem>
+            <!-- This is a simple indicator YES, OR NO -->
+            <div class="col-sm-2">
+                <label class="control-label">Payment Agreement</label>
+                <asp:DropDownList ID="ddlPaymentAgreement" runat="server" 
+                    CssClass="form-control" AutoPostBack="True">
+                    <asp:ListItem>Y</asp:ListItem>
+                    <asp:ListItem>N</asp:ListItem>
                 </asp:DropDownList>
             </div>
-        </div>
-    <!-- This is also the same type of thing if good areas only select yes, then it displays them below -->
-        <div class="form-group" style="width: 134px">
-                  <label class=" control-label">Good Areas Only</label>
-            <div class="col-sm-4">
-                <asp:DropDownList ID="ddlGoodArea" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
-                    <asp:ListItem>YES</asp:ListItem>
-                    <asp:ListItem>NO</asp:ListItem>
-                </asp:DropDownList>
+            
+            <!-- This is also the same type of thing if good areas only select yes, then it displays them below -->
+            <div class="col-sm-2s">
+                <label class="control-label">Areas</label>
+                <asp:CheckBoxList ID="cblArea" runat="server" 
+                    CssClass="form-control"
+                    AutoPostBack="True">
+                    <asp:ListItem>Good</asp:ListItem>
+                    <asp:ListItem>Bad</asp:ListItem>
+                </asp:CheckBoxList>
             </div>
         </div>
-    <!-- This is also the same type of thing if good areas only select yes, then it displays them below -->
-    <div class="form-group" style="width: 134px">
-                  <label class="col-sm-3 control-label">Bad Areas Included</label>
-            <div class="col-sm-4">
-                <asp:DropDownList ID="ddlBadArea" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
-                    <asp:ListItem>YES</asp:ListItem>
-                    <asp:ListItem>NO</asp:ListItem>
-                </asp:DropDownList>
-            </div>
-        </div>
-    <br />      
-
-
-
+    </div>
+</div>
 <!--End of Filters-->
+
 <!-- Gridview for DTP Database -->
 <div class="jumbotron">
     <h1>DTP Data</h1>

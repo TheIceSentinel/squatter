@@ -13,13 +13,13 @@ namespace SquatterForm {
     public partial class _Default {
         
         /// <summary>
-        /// lblZipCode control.
+        /// lbZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lblZipCode;
+        protected global::System.Web.UI.WebControls.ListBox lbZipCode;
         
         /// <summary>
         /// ddlTotalAmountDue control.
@@ -40,22 +40,13 @@ namespace SquatterForm {
         protected global::System.Web.UI.WebControls.DropDownList ddlPaymentAgreement;
         
         /// <summary>
-        /// ddlGoodArea control.
+        /// cblArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGoodArea;
-        
-        /// <summary>
-        /// ddlBadArea control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBadArea;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblArea;
         
         /// <summary>
         /// grdDTPData control.
