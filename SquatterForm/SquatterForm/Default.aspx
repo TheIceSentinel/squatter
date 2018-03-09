@@ -37,7 +37,7 @@
             </div>
            
        <!--Update 03/09/2018 Changed around stuff a little bit here, if anyone has input we can change-->
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="left: 0px; top: 20px">
                 <label class="control-label">Total Amount Owed</label>
                 <asp:DropDownList ID="ddlTotalAmountDue" runat="server" 
                     CssClass="form-control" AutoPostBack="True">
