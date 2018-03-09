@@ -13,8 +13,7 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
 </div>
 <!--Filters-->
-    <!-- This is a rough mock up, I figure we put the ten most desireable zip codes 
-        Or something here to minimize all 115 of them, we can discuss this in class-->
+    <!-- 03/09/2018 Updated Zip Codes, they are in decsending order-->
 <div class="panel panel-default">
     <div class="panel-heading">Filters</div>
     <div class="panel-body">
@@ -24,52 +23,51 @@
                 <asp:ListBox ID="lbZipCode" runat="server" 
                     SelectionMode="Multiple" CssClass="form-control" 
                     Rows="5" AutoPostBack="True">
-                    <asp:ListItem>75390</asp:ListItem>
-                    <asp:ListItem>75393</asp:ListItem>
-                    <asp:ListItem>75394</asp:ListItem>
-                    <asp:ListItem>75395</asp:ListItem>
-                    <asp:ListItem>75303</asp:ListItem>
-                    <asp:ListItem>75312</asp:ListItem>
-                    <asp:ListItem>75313</asp:ListItem>
-                    <asp:ListItem>75336</asp:ListItem>
-                    <asp:ListItem>75339</asp:ListItem>
-                    <asp:ListItem>75342</asp:ListItem>
-                    <asp:ListItem>75354</asp:ListItem>
+                    <asp:ListItem>75205</asp:ListItem>
+                    <asp:ListItem>75225</asp:ListItem>
+                    <asp:ListItem>75209</asp:ListItem>
+                    <asp:ListItem>75230</asp:ListItem>
+                    <asp:ListItem>75201</asp:ListItem>
+                    <asp:ListItem>75254</asp:ListItem>
+                    <asp:ListItem>75203</asp:ListItem>
+                    <asp:ListItem>75214</asp:ListItem>
+                    <asp:ListItem>75219</asp:ListItem>
+                    <asp:ListItem>75220</asp:ListItem>
                 </asp:ListBox>
             </div>
-            
-            <!-- Starting here I want to spread these fields out across the screen, need help remembering, so they
-                won't be stacked in our application -->
-            <!--We Could make this a range validator want groups opinion-->
+           
+       <!--Update 03/09/2018 Changed around stuff a little bit here, if anyone has input we can change-->
             <div class="col-sm-3">
-                <label class="control-label">Total Amount Due</label>
+                <label class="control-label">Total Amount Owed</label>
                 <asp:DropDownList ID="ddlTotalAmountDue" runat="server" 
                     CssClass="form-control" AutoPostBack="True">
-                    <asp:ListItem>Less than $20,000</asp:ListItem>
-                    <asp:ListItem>Less than $40,000</asp:ListItem>
-                    <asp:ListItem>Less than $50,000</asp:ListItem>
-                    <asp:ListItem>Greater than $50,000</asp:ListItem>
+                    <asp:ListItem> less than $10,000</asp:ListItem>
+                    <asp:ListItem> less than $25,000</asp:ListItem>
+                    <asp:ListItem> less than $50,000</asp:ListItem>
+                    <asp:ListItem> less than $75,000</asp:ListItem>
+                    <asp:ListItem> less than $100,000</asp:ListItem>
                 </asp:DropDownList>
             </div>
 
-            <!-- This is a simple indicator YES, OR NO -->
+            <!--Update 03/09/2018 Added the full words, we can revert if we need to-->
             <div class="col-sm-2">
-                <label class="control-label">Payment Agreement</label>
+                <label class="control-label">Properties with Payment Agreements</label>
                 <asp:DropDownList ID="ddlPaymentAgreement" runat="server" 
                     CssClass="form-control" AutoPostBack="True">
-                    <asp:ListItem>Y</asp:ListItem>
-                    <asp:ListItem>N</asp:ListItem>
+                    <asp:ListItem>Yes</asp:ListItem>
+                    <asp:ListItem>No</asp:ListItem>
                 </asp:DropDownList>
             </div>
             
-            <!-- This is also the same type of thing if good areas only select yes, then it displays them below -->
+            <!--Update 03/09/2018 Changed this up a bit-->
             <div class="col-sm-2s">
-                <label class="control-label">Areas</label>
+                <label class="control-label">Specific Area Selection</label>
                 <asp:CheckBoxList ID="cblArea" runat="server" 
                     CssClass="form-control"
-                    AutoPostBack="True">
-                    <asp:ListItem>Good</asp:ListItem>
-                    <asp:ListItem>Bad</asp:ListItem>
+                    AutoPostBack="True" Height="34px">
+                    <asp:ListItem>Top 10 Areas Only</asp:ListItem>
+                    <asp:ListItem>Higher Risk Areas</asp:ListItem>
+                    <asp:ListItem>Include All Areas</asp:ListItem>
                 </asp:CheckBoxList>
             </div>
         </div>
