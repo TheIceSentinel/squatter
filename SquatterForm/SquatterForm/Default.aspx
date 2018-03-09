@@ -35,7 +35,7 @@
                     <asp:ListItem>75220</asp:ListItem>
                 </asp:ListBox>
             </div>
-           
+            
        <!--Update 03/09/2018 Changed around stuff a little bit here, if anyone has input we can change-->
             <div class="col-sm-3" style="left: 0px; top: 20px">
                 <label class="control-label">Total Amount Owed</label>
@@ -69,6 +69,22 @@
                     <asp:ListItem>Higher Risk Areas</asp:ListItem>
                     <asp:ListItem>Include All Areas</asp:ListItem>
                 </asp:CheckBoxList>
+            </div>
+            
+            <br />
+            <br />
+             <!-- This will replace the Rating System for now. This is the same thing as zip codes,
+            but instead I am using the name of the area, these areas have the following zip codes
+            from the top down 75205, 75225, 75209, 75230, this will help us to code. -->
+            <div class="col-sm-3" style="left: 0px; top: 20px">
+                <label class="control-label">Specific Area of Dallas</label>
+                <asp:DropDownList ID="DropDownList1" runat="server" 
+                    CssClass="form-control" AutoPostBack="True">
+                    <asp:ListItem>University Park </asp:ListItem> 
+                    <asp:ListItem>Highland Park</asp:ListItem> 
+                    <asp:ListItem>Uptown</asp:ListItem>
+                    <asp:ListItem>North Dallas</asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
     </div>
