@@ -22,18 +22,12 @@
                 <label class="control-label">Zip Code</label>
                 <asp:ListBox ID="lbZipCode" runat="server" 
                     SelectionMode="Multiple" CssClass="form-control" 
-                    Rows="5" AutoPostBack="True">
-                    <asp:ListItem>75205</asp:ListItem>
-                    <asp:ListItem>75225</asp:ListItem>
-                    <asp:ListItem>75209</asp:ListItem>
-                    <asp:ListItem>75230</asp:ListItem>
-                    <asp:ListItem>75201</asp:ListItem>
-                    <asp:ListItem>75254</asp:ListItem>
-                    <asp:ListItem>75203</asp:ListItem>
-                    <asp:ListItem>75214</asp:ListItem>
-                    <asp:ListItem>75219</asp:ListItem>
-                    <asp:ListItem>75220</asp:ListItem>
+                    Rows="5" AutoPostBack="True" DataSourceID="ZipFilterSource">
                 </asp:ListBox>
+                <asp:SqlDataSource ID="ZipFilterSource" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
+                    SelectCommand="SELECT [ZipCode] FROM [TaxRoll]">
+                </asp:SqlDataSource>
             </div>
             
        <!--Update 03/09/2018 Changed around stuff a little bit here, if anyone has input we can change-->
