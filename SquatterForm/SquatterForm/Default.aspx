@@ -21,12 +21,15 @@
             <div class="col-sm-3">
                 <label class="control-label">Zip Code</label>
                 <asp:ListBox ID="lbZipCode" runat="server" 
-                    SelectionMode="Multiple" CssClass="form-control" 
-                    Rows="5" AutoPostBack="True" DataSourceID="ZipFilterSource">
+                    SelectionMode="Multiple" CssClass="form-control" Rows="5" 
+                    DataSourceID="ZipFilterSource" 
+                    DataTextField="ZipCode" DataValueField="ZipCode">
                 </asp:ListBox>
                 <asp:SqlDataSource ID="ZipFilterSource" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
-                    SelectCommand="SELECT [ZipCode] FROM [TaxRoll]">
+                    SelectCommand="SELECT DISTINCT [ZipCode] 
+                                     FROM [TaxRoll]
+                                    ORDER BY [ZipCode]">
                 </asp:SqlDataSource>
             </div>
             
@@ -35,11 +38,11 @@
                 <label class="control-label">Total Amount Owed</label>
                 <asp:DropDownList ID="ddlTotalAmountDue" runat="server" 
                     CssClass="form-control" AutoPostBack="True">
-                    <asp:ListItem> less than $10,000</asp:ListItem>
-                    <asp:ListItem> less than $25,000</asp:ListItem>
-                    <asp:ListItem> less than $50,000</asp:ListItem>
-                    <asp:ListItem> less than $75,000</asp:ListItem>
-                    <asp:ListItem> less than $100,000</asp:ListItem>
+                    <asp:ListItem Text="< $10,000" Value="10000" />
+                    <asp:ListItem Text="< $25,000" Value="25000" />
+                    <asp:ListItem Text="< $50,000" Value="50000" />
+                    <asp:ListItem Text="< $75,000" Value="75000" />
+                    <asp:ListItem Text="< $100,000" Value="100000" Selected="True"/>
                 </asp:DropDownList>
             </div>
 
@@ -59,7 +62,7 @@
                 <asp:CheckBoxList ID="cblArea" runat="server" 
                     CssClass="form-control"
                     AutoPostBack="True" Height="34px">
-                    <asp:ListItem>Top 10 Areas Only</asp:ListItem>
+                    <asp:ListItem>Top 10 Areas Only</asp:ListItem> <%--by what metric?--%>
                     <asp:ListItem>Higher Risk Areas</asp:ListItem>
                     <asp:ListItem>Include All Areas</asp:ListItem>
                 </asp:CheckBoxList>
