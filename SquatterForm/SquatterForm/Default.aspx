@@ -92,27 +92,39 @@
 <div class="jumbotron">
     <h1>DTP Data</h1>
     <p class="lead">Here is where you data will be displayed.</p>
-    
-        <asp:GridView ID="grdDTPData" runat="server"
-                      AutoGenerateColumns="False" 
-                      AutoGenerateRows="True"
-                      CssClass="table table-bordered table-striped table-condensed" AllowPaging="True">
+        <asp:SqlDataSource ID="grdDataSource" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
+            SelectCommand="SELECT [DueDate], [Address1], [Address2], [Address3], [Address4], [City], [StateAbbr], [ZipCode], [AmntDue], [IsSafe], [HasPayAgreement] 
+                             FROM [TaxRoll] 
+                            WHERE ([AmntDue] &lt; @AmntDue) 
+                            ORDER BY [DueDate] DESC">
+            <SelectParameters>
+                <asp:ControlParameter Name="AmntDue" Type="Int32"
+                    ControlID="ddlTotalAmountDue" PropertyName="SelectedValue" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:GridView ID="grdDTPData" runat="server" Height="10px"
+            AutoGenerateColumns="False" AutoGenerateRows="True"
+            CssClass="table table-bordered table-striped table-condensed" 
+            AllowPaging="True" DataSourceID="grdDataSource">
             <Columns>
-                <asp:BoundField DataField="OWNER" HeaderText="Owners Name" />
-                <asp:BoundField DataField="ADDRESS2" HeaderText="Address" ReadOnly="True" />
-                <asp:BoundField DataField="ADDRESS3" HeaderText="Alt Address" ReadOnly="True" />
-                <asp:BoundField DataField="CITY" HeaderText="City" ReadOnly="True" />
-                <asp:BoundField DataField="STATE" HeaderText="State" ReadOnly="True" />
-                <asp:BoundField DataField="ZIP" HeaderText="Zip Code" ReadOnly="True" />
-                <asp:BoundField DataField="ZIP-PLUS4" HeaderText="Zip Code +4" ReadOnly="True" />
-                <asp:BoundField DataField="ROLL-CODE" HeaderText="Property" ReadOnly="True" />
-                <asp:BoundField DataField="PARCEL NO" HeaderText="Parcel #" ReadOnly="True" />
-                <asp:BoundField DataField="PARCEL NAME" HeaderText="Parcel Name" ReadOnly="True" />
-                <asp:BoundField DataField="PAYMENT AGREEMENT" HeaderText="Payment Agreement" ReadOnly="True" />
-                <asp:BoundField DataField="TOT_AMT_DUE" HeaderText="Total Amt Due" ReadOnly="True" />
-                <asp:BoundField DataField="RATING" HeaderText="Rating" ReadOnly="True" />
-                <asp:BoundField DataField="GOOD AREA" HeaderText="Good Area" ReadOnly="True" />
-                <asp:BoundField DataField="BAD AREA" HeaderText="Bad Area" ReadOnly="True" />
+                <asp:BoundField DataField="DueDate" HeaderText="Date Due" SortExpression="DueDate" />
+                <asp:BoundField DataField="Address1" HeaderText="Owner" SortExpression="Address1" />
+                <asp:BoundField DataField="Address2" HeaderText="Address" SortExpression="Address2" />
+                <asp:BoundField DataField="Address3" HeaderText="Line 2" SortExpression="Address3" />
+                <asp:BoundField DataField="Address4" HeaderText="Line 3" SortExpression="Address4" />
+                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                <asp:BoundField DataField="StateAbbr" HeaderText="State" SortExpression="StateAbbr" />
+                <asp:BoundField DataField="ZipCode" HeaderText="Zip" SortExpression="ZipCode" />
+                <asp:BoundField DataField="AmntDue" HeaderText="Amount Due" SortExpression="AmntDue" />
+                <%--<asp:BoundField DataField="ROLL-CODE" HeaderText="Property" ReadOnly="True" />--%>
+                <%--<asp:BoundField DataField="PARCEL NO" HeaderText="Parcel #" ReadOnly="True" />--%>
+                <%--<asp:BoundField DataField="PARCEL NAME" HeaderText="Parcel Name" ReadOnly="True" />--%>
+                <%--<asp:BoundField DataField="RATING" HeaderText="Rating" ReadOnly="True" />--%>
+                <%--<asp:BoundField DataField="GOOD AREA" HeaderText="Good Area" ReadOnly="True" />--%>
+                <%--<asp:BoundField DataField="BAD AREA" HeaderText="Bad Area" ReadOnly="True" />--%>
+                <asp:CheckBoxField DataField="IsSafe" HeaderText="Safe" SortExpression="IsSafe" />
+                <asp:CheckBoxField DataField="HasPayAgreement" HeaderText="Agreement" SortExpression="HasPayAgreement" />
             </Columns>
             <HeaderStyle BackColor="DarkOrange" ForeColor="White" Font-Bold="True" />
             <RowStyle BackColor="White" ForeColor="Black" />
