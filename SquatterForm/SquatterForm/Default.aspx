@@ -21,7 +21,7 @@
             <div class="col-sm-3">
                 <label class="control-label">Zip Code</label>
                 <asp:ListBox ID="lbZipCode" runat="server" 
-                    SelectionMode="Multiple" CssClass="form-control" Rows="5" 
+                    SelectionMode="Single" CssClass="form-control" Rows="5" 
                     DataSourceID="ZipFilterSource" 
                     DataTextField="ZipCode" DataValueField="ZipCode">
                 </asp:ListBox>
@@ -96,11 +96,13 @@
             ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
             SelectCommand="SELECT [DueDate], [Address1], [Address2], [Address3], [Address4], [City], [StateAbbr], [ZipCode], [AmntDue], [IsSafe], [HasPayAgreement] 
                              FROM [TaxRoll] 
-                            WHERE ([AmntDue] &lt; @AmntDue) 
+                            WHERE ([AmntDue] &lt; @AmntDue) AND ([ZipCode] = @ZipCode)
                             ORDER BY [DueDate] DESC">
             <SelectParameters>
                 <asp:ControlParameter Name="AmntDue" Type="Int32"
                     ControlID="ddlTotalAmountDue" PropertyName="SelectedValue" />
+                <asp:ControlParameter Name="ZipCode" Type="Int32" 
+                    ControlID="lbZipCode" PropertyName="GetEnumerator" />
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:GridView ID="grdDTPData" runat="server" Height="10px"
