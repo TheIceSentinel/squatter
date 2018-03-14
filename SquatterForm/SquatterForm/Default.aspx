@@ -96,13 +96,13 @@
             ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
             SelectCommand="SELECT [DueDate], [Address1], [Address2], [City], [StateAbbr], [ZipCode], [AmntDue], [IsSafe], [HasPayAgreement] 
                              FROM [TaxRoll] 
-                            WHERE ([AmntDue] &lt; @AmntDue) AND ([ZipCode] = @ZipCode)
+                            WHERE ([AmntDue] &lt; @AmntDue)
                             ORDER BY [DueDate] DESC">
             <SelectParameters>
                 <asp:ControlParameter Name="AmntDue" Type="Int32"
                     ControlID="ddlTotalAmountDue" PropertyName="SelectedValue" />
-                <asp:ControlParameter Name="ZipCode" Type="Int32" 
-                    ControlID="lbZipCode" PropertyName="SelectedValue" />
+                <%--<asp:ControlParameter Name="ZipCode" Type="Int32" 
+                    ControlID="lbZipCode" PropertyName="SelectedValue" />--%>
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:GridView ID="grdDTPData" runat="server" Height="10px"
