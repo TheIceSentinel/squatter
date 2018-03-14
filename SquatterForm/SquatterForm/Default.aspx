@@ -94,7 +94,7 @@
     <p class="lead">Here is where you data will be displayed.</p>
         <asp:SqlDataSource ID="grdDataSource" runat="server" 
             ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
-            SelectCommand="SELECT [DueDate], [Address1], [Address2], [Address3], [Address4], [City], [StateAbbr], [ZipCode], [AmntDue], [IsSafe], [HasPayAgreement] 
+            SelectCommand="SELECT [DueDate], [Address1], [Address2], [City], [StateAbbr], [ZipCode], [AmntDue], [IsSafe], [HasPayAgreement] 
                              FROM [TaxRoll] 
                             WHERE ([AmntDue] &lt; @AmntDue) AND ([ZipCode] = @ZipCode)
                             ORDER BY [DueDate] DESC">
@@ -102,7 +102,7 @@
                 <asp:ControlParameter Name="AmntDue" Type="Int32"
                     ControlID="ddlTotalAmountDue" PropertyName="SelectedValue" />
                 <asp:ControlParameter Name="ZipCode" Type="Int32" 
-                    ControlID="lbZipCode" PropertyName="GetEnumerator" />
+                    ControlID="lbZipCode" PropertyName="SelectedValue" />
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:GridView ID="grdDTPData" runat="server" Height="10px"
@@ -113,8 +113,6 @@
                 <asp:BoundField DataField="DueDate" HeaderText="Date Due" SortExpression="DueDate" />
                 <asp:BoundField DataField="Address1" HeaderText="Owner" SortExpression="Address1" />
                 <asp:BoundField DataField="Address2" HeaderText="Address" SortExpression="Address2" />
-                <asp:BoundField DataField="Address3" HeaderText="Line 2" SortExpression="Address3" />
-                <asp:BoundField DataField="Address4" HeaderText="Line 3" SortExpression="Address4" />
                 <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                 <asp:BoundField DataField="StateAbbr" HeaderText="State" SortExpression="StateAbbr" />
                 <asp:BoundField DataField="ZipCode" HeaderText="Zip" SortExpression="ZipCode" />
@@ -136,5 +134,34 @@
         </asp:GridView>
     
 </div>
-
+<div class='tableauPlaceholder' id='viz1520995342317' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DT&#47;DTP_1&#47;Dashboard1&#47;1_rss.png' 
+                style='border: none' />
+        </a>
+    </noscript>
+    <object class='tableauViz'  style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='DTP_1&#47;Dashboard1' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DT&#47;DTP_1&#47;Dashboard1&#47;1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+    </object>
+</div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1520995342317');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '1000px'; vizElement.style.height = '827px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
 </asp:Content>
