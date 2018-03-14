@@ -129,6 +129,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="App_Data\DTP.mdf" />
+    <Content Include="App_Data\DTP_log.ldf">
+      <DependentUpon>DTP.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
