@@ -13,7 +13,77 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
 </div>
 <!--Filters-->
-<h2>Filters Will Go Here.</h2>
+<h2>Refine your criteria using dropdown items below:</h2>
+    <!-- This is a rough mock up, I figure we put the ten most desireable zip codes 
+        Or something here to minimize all 115 of them, we can discuss this in class-->
+    <div class="form-group" style="width: 134px">
+        <label class="col-sm-3 control-label">Zip Code</label>
+            <div class="col-sm-4">
+                <asp:ListBox ID="lblZipCode" runat="server"  SelectionMode="Multiple" CssClass="form-control" AutoPostBack="True" Height="24px" Width="125px">
+                    <asp:ListItem>75390</asp:ListItem>
+                    <asp:ListItem>75393</asp:ListItem>
+                    <asp:ListItem>75394</asp:ListItem>
+                    <asp:ListItem>75395</asp:ListItem>
+                    <asp:ListItem>75303</asp:ListItem>
+                    <asp:ListItem>75312</asp:ListItem>
+                    <asp:ListItem>75313</asp:ListItem>
+                    <asp:ListItem>75336</asp:ListItem>
+                    <asp:ListItem>75339</asp:ListItem>
+                    <asp:ListItem>75342</asp:ListItem>
+                    <asp:ListItem>75354</asp:ListItem>
+                 </asp:ListBox>
+            </div>
+        </div>
+    <!-- Starting here I want to spread these fields out across the screen, need help remembering, so they
+        won't be stacked in our application -->
+    <!--We Could make this a range validator want groups opinion-->
+       <div class="form-group" style="width: 130px">
+            <label class="col-sm-3 control-label">Total Amount Due</label>
+            <div class="col-sm-4">
+                <asp:DropDownList ID="ddlTotalAmountDue" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
+                    <asp:ListItem>Less than $10,000</asp:ListItem>
+                    <asp:ListItem>Less than $20,000</asp:ListItem>
+                    <asp:ListItem>Less than $40,000</asp:ListItem>
+                    <asp:ListItem>Less than $50,000</asp:ListItem>
+                    <asp:ListItem>Greater than $50,000</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+          </div>
+
+    <!-- This is a simple indicator YES, OR NO -->
+        <div class="form-group" style="width: 134px">
+            <label class="col-sm-3 control-label">Payment Agreement</label>
+            <div class="col-sm-4">
+                <asp:DropDownList ID="ddlPaymentAgreement" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
+                    <asp:ListItem>YES</asp:ListItem>
+                    <asp:ListItem>NO</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+    <!-- This is also the same type of thing if good areas only select yes, then it displays them below -->
+        <div class="form-group" style="width: 134px">
+                  <label class=" control-label">Good Areas Only</label>
+            <div class="col-sm-4">
+                <asp:DropDownList ID="ddlGoodArea" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
+                    <asp:ListItem>YES</asp:ListItem>
+                    <asp:ListItem>NO</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+    <!-- This is also the same type of thing if good areas only select yes, then it displays them below -->
+    <div class="form-group" style="width: 134px">
+                  <label class="col-sm-3 control-label">Bad Areas Included</label>
+            <div class="col-sm-4">
+                <asp:DropDownList ID="ddlBadArea" runat="server" CssClass="form-control" AutoPostBack="True" Height="16px" Width="125px">
+                    <asp:ListItem>YES</asp:ListItem>
+                    <asp:ListItem>NO</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+
+    <br />      
+        
+        
 <!--End of Filters-->
 <!-- Gridview for DTP Database -->
 <div class="jumbotron">
