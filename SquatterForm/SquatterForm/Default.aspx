@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SquatterForm._Default" %>
 
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 <div class="jumbotron">
@@ -10,7 +11,7 @@
         based on the past 5 years of data from Dallas County Public record that was provided. Please use the filters below in order to narrow or broaden
         your search criteria. You will then be able to transfer that data
     </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
+    <p><a href="About.aspx" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
 </div>
 <!--Filters-->
     <!-- 03/09/2018 Updated Zip Codes, they are in decsending order-->
@@ -18,11 +19,10 @@
     <div class="panel-heading">Filters</div>
     <div class="panel-body">
         <div class="form-group">
-            <div class="col-sm-3">
-                <label class="control-label">Zip Code</label>
+                <label class="control-label">Zip Code</label> <br />
                 <asp:ListBox ID="lbZipCode" runat="server" 
-                    SelectionMode="Multiple" CssClass="form-control" 
-                    Rows="5" AutoPostBack="True">
+                    SelectionMode="Multiple" CssClass="form-control js-example-basic-single" 
+                    Rows="5" AutoPostBack="False">
                     <asp:ListItem>75205</asp:ListItem>
                     <asp:ListItem>75225</asp:ListItem>
                     <asp:ListItem>75209</asp:ListItem>
@@ -34,49 +34,38 @@
                     <asp:ListItem>75219</asp:ListItem>
                     <asp:ListItem>75220</asp:ListItem>
                 </asp:ListBox>
-            </div>
+            <br />
             
        <!--Update 03/09/2018 Changed around stuff a little bit here, if anyone has input we can change-->
-            <div class="col-sm-3" style="left: 0px; top: 20px">
                 <label class="control-label">Total Amount Owed</label>
                 <asp:DropDownList ID="ddlTotalAmountDue" runat="server" 
-                    CssClass="form-control" AutoPostBack="True">
+                    CssClass="form-control " AutoPostBack="True">
                     <asp:ListItem> less than $10,000</asp:ListItem>
                     <asp:ListItem> less than $25,000</asp:ListItem>
                     <asp:ListItem> less than $50,000</asp:ListItem>
                     <asp:ListItem> less than $75,000</asp:ListItem>
                     <asp:ListItem> less than $100,000</asp:ListItem>
                 </asp:DropDownList>
-            </div>
 
             <!--Update 03/09/2018 Added the full words, we can revert if we need to-->
-            <div class="col-sm-2">
                 <label class="control-label">Properties with Payment Agreements</label>
                 <asp:DropDownList ID="ddlPaymentAgreement" runat="server" 
                     CssClass="form-control" AutoPostBack="True">
                     <asp:ListItem>Yes</asp:ListItem>
                     <asp:ListItem>No</asp:ListItem>
                 </asp:DropDownList>
-            </div>
             
             <!--Update 03/09/2018 Changed this up a bit-->
-            <div class="col-sm-2s">
                 <label class="control-label">Specific Area Selection</label>
-                <asp:CheckBoxList ID="cblArea" runat="server" 
-                    CssClass="form-control"
-                    AutoPostBack="True" Height="34px">
-                    <asp:ListItem>Top 10 Areas Only</asp:ListItem>
-                    <asp:ListItem>Higher Risk Areas</asp:ListItem>
-                    <asp:ListItem>Include All Areas</asp:ListItem>
-                </asp:CheckBoxList>
-            </div>
-            
-            <br />
-            <br />
+                    <asp:DropDownList ID="DropDownList2" runat="server" 
+                        CssClass="form-control" AutoPostBack="True">
+                        <asp:ListItem> Top 10 Areas Only"</asp:ListItem>
+                        <asp:ListItem>Higher Risk Areas</asp:ListItem>
+                        <asp:ListItem>Include All Areas</asp:ListItem>
+                    </asp:DropDownList>
              <!-- This will replace the Rating System for now. This is the same thing as zip codes,
             but instead I am using the name of the area, these areas have the following zip codes
             from the top down 75205, 75225, 75209, 75230, this will help us to code. -->
-            <div class="col-sm-3" style="left: 0px; top: 20px">
                 <label class="control-label">Specific Area of Dallas</label>
                 <asp:DropDownList ID="DropDownList1" runat="server" 
                     CssClass="form-control" AutoPostBack="True">
@@ -85,13 +74,12 @@
                     <asp:ListItem>Uptown</asp:ListItem>
                     <asp:ListItem>North Dallas</asp:ListItem>
                 </asp:DropDownList>
-            </div>
         </div>
     </div>
 </div>
 <!--End of Filters-->
 
-<!-- Gridview for DTP Database -->
+ Gridview for DTP Database 
 <div class="jumbotron">
     <h1>DTP Data</h1>
     <p class="lead">Here is where you data will be displayed.</p>
