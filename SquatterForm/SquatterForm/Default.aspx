@@ -21,7 +21,7 @@
             <div class="col-sm-3">
                 <label class="control-label">Zip Code</label>
                 <asp:ListBox ID="lbZipCode" runat="server" 
-                    SelectionMode="Single" CssClass="form-control" Rows="5" 
+                    SelectionMode="Single" CssClass="form-control js-example-basic-single" Rows="5" 
                     DataSourceID="ZipFilterSource" 
                     DataTextField="ZipCode" DataValueField="ZipCode">
                 </asp:ListBox>
