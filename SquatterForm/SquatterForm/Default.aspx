@@ -13,7 +13,79 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
 </div>
 <!--Filters-->
-<h2>Filters Will Go Here.</h2>
+    <!-- 03/09/2018 Updated Zip Codes, they are in decsending order-->
+<div class="panel panel-default">
+    <div class="panel-heading">Filters</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="col-sm-3">
+                <label class="control-label">Zip Code</label>
+                <asp:ListBox ID="lbZipCode" runat="server" 
+                    SelectionMode="Single" CssClass="form-control js-example-basic-single" Rows="5" 
+                    DataSourceID="ZipFilterSource" 
+                    DataTextField="ZipCode" DataValueField="ZipCode">
+                </asp:ListBox>
+                <asp:SqlDataSource ID="ZipFilterSource" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:TaxRollConnection %>" 
+                    SelectCommand="SELECT DISTINCT [ZipCode] 
+                                     FROM [TaxRoll]
+                                    ORDER BY [ZipCode]">
+                </asp:SqlDataSource>
+            </div>
+            
+       <!--Update 03/09/2018 Changed around stuff a little bit here, if anyone has input we can change-->
+            <div class="col-sm-3" style="left: 0px; top: 20px">
+                <label class="control-label">Total Amount Owed</label>
+                <asp:DropDownList ID="ddlTotalAmountDue" runat="server" 
+                    CssClass="form-control" AutoPostBack="True">
+                    <asp:ListItem Text="< $10,000" Value="10000" />
+                    <asp:ListItem Text="< $25,000" Value="25000" />
+                    <asp:ListItem Text="< $50,000" Value="50000" />
+                    <asp:ListItem Text="< $75,000" Value="75000" />
+                    <asp:ListItem Text="< $100,000" Value="100000" Selected="True"/>
+                </asp:DropDownList>
+            </div>
+
+            <!--Update 03/09/2018 Added the full words, we can revert if we need to-->
+            <div class="col-sm-2">
+                <label class="control-label">Properties with Payment Agreements</label>
+                <asp:DropDownList ID="ddlPaymentAgreement" runat="server" 
+                    CssClass="form-control" AutoPostBack="True">
+                    <asp:ListItem>Yes</asp:ListItem>
+                    <asp:ListItem>No</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            
+            <!--Update 03/09/2018 Changed this up a bit-->
+            <div class="col-sm-2s">
+                <label class="control-label">Specific Area Selection</label>
+                <asp:CheckBoxList ID="cblArea" runat="server" 
+                    CssClass="form-control"
+                    AutoPostBack="True" Height="34px">
+                    <asp:ListItem>Top 10 Areas Only</asp:ListItem> <%--by what metric?--%>
+                    <asp:ListItem>Higher Risk Areas</asp:ListItem>
+                    <asp:ListItem>Include All Areas</asp:ListItem>
+                </asp:CheckBoxList>
+            </div>
+            
+            <br />
+            <br />
+             <!-- This will replace the Rating System for now. This is the same thing as zip codes,
+            but instead I am using the name of the area, these areas have the following zip codes
+            from the top down 75205, 75225, 75209, 75230, this will help us to code. -->
+            <div class="col-sm-3" style="left: 0px; top: 20px">
+                <label class="control-label">Specific Area of Dallas</label>
+                <asp:DropDownList ID="DropDownList1" runat="server" 
+                    CssClass="form-control" AutoPostBack="True">
+                    <asp:ListItem>University Park </asp:ListItem> 
+                    <asp:ListItem>Highland Park</asp:ListItem> 
+                    <asp:ListItem>Uptown</asp:ListItem>
+                    <asp:ListItem>North Dallas</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+    </div>
+</div>
 <!--End of Filters-->
 
 <!-- Gridview for DTP Database -->
