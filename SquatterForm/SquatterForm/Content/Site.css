@@ -4,6 +4,28 @@ body {
     padding-bottom: 20px;
 }
 
+/*Style app colrs*/
+.btn-primary {
+    background-color: #041E42;
+    border-color: #041E42;
+}
+.navbar-inverse {
+    background-color: #869397;
+}
+
+    .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+        color: #FFFFFF;
+    }
+.btn-primary:hover {
+    background-color: #041E42;
+    border-color: #041E42;
+}
+
+ .jumbotron {
+        background-color: #869397;
+        color: #FFFFFF
+    }
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -17,6 +39,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
 
 
 /* Responsive: Portrait tablets and up */
