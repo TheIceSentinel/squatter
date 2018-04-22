@@ -46,7 +46,7 @@
                 </asp:DropDownList>
             </div>
 
-            <!--Update 03/09/2018 Added the full words, we can revert if we need to-->
+            <!--Update 03/09/2018 Added the full words, we can revert if we need to -->
             <div class="col-sm-2">
                 <label class="control-label">Properties with Payment Agreements</label>
                 <asp:DropDownList ID="ddlPaymentAgreement" runat="server" 
@@ -62,7 +62,7 @@
                 <asp:CheckBoxList ID="cblArea" runat="server" 
                     CssClass="form-control"
                     AutoPostBack="True" Height="34px">
-                    <asp:ListItem>Top 10 Areas Only</asp:ListItem> <%--by what metric?--%>
+                    <asp:ListItem>Top 10 Areas Only</asp:ListItem>
                     <asp:ListItem>Higher Risk Areas</asp:ListItem>
                     <asp:ListItem>Include All Areas</asp:ListItem>
                 </asp:CheckBoxList>
@@ -101,9 +101,7 @@
             <SelectParameters>
                 <asp:ControlParameter Name="AmntDue" Type="Int32"
                     ControlID="ddlTotalAmountDue" PropertyName="SelectedValue" />
-                <%--<asp:ControlParameter Name="ZipCode" Type="Int32" 
-                    ControlID="lbZipCode" PropertyName="SelectedValue" />--%>
-            </SelectParameters>
+                </SelectParameters>
         </asp:SqlDataSource>
         <asp:GridView ID="grdDTPData" runat="server" Height="10px"
             AutoGenerateColumns="False" AutoGenerateRows="True"
@@ -117,12 +115,6 @@
                 <asp:BoundField DataField="StateAbbr" HeaderText="State" SortExpression="StateAbbr" />
                 <asp:BoundField DataField="ZipCode" HeaderText="Zip" SortExpression="ZipCode" />
                 <asp:BoundField DataField="AmntDue" HeaderText="Amount Due" SortExpression="AmntDue" />
-                <%--<asp:BoundField DataField="ROLL-CODE" HeaderText="Property" ReadOnly="True" />--%>
-                <%--<asp:BoundField DataField="PARCEL NO" HeaderText="Parcel #" ReadOnly="True" />--%>
-                <%--<asp:BoundField DataField="PARCEL NAME" HeaderText="Parcel Name" ReadOnly="True" />--%>
-                <%--<asp:BoundField DataField="RATING" HeaderText="Rating" ReadOnly="True" />--%>
-                <%--<asp:BoundField DataField="GOOD AREA" HeaderText="Good Area" ReadOnly="True" />--%>
-                <%--<asp:BoundField DataField="BAD AREA" HeaderText="Bad Area" ReadOnly="True" />--%>
                 <asp:CheckBoxField DataField="IsSafe" HeaderText="Safe" SortExpression="IsSafe" />
                 <asp:CheckBoxField DataField="HasPayAgreement" HeaderText="Agreement" SortExpression="HasPayAgreement" />
             </Columns>
@@ -132,8 +124,9 @@
             <FooterStyle BackColor="LightGray" ForeColor="Blue" />
             <PagerStyle BackColor="DarkOrange" ForeColor="White" HorizontalAlign="Center" />
         </asp:GridView>
-    
+
 </div>
+
 <div class='tableauPlaceholder' id='viz1520995342317' style='position: relative'>
     <noscript>
         <a href='#'>
