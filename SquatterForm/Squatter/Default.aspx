@@ -10,7 +10,7 @@
         based on the past 5 years of data from Dallas County Public record that was provided. Please use the filters below in order to narrow or broaden
         your search criteria. You will then be able to transfer that data
     </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
+    <p><a href="Files/DTPHelp.pdf" class="btn btn-primary btn-lg">Click Here for User Manual &raquo;</a></p>
 </div>
 
 <div class='tableauPlaceholder' id='viz1520995342317' style='position: relative'>
