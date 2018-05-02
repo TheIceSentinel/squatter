@@ -20,6 +20,8 @@
                             <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                 CssClass="text-danger" ErrorMessage="The email field is required." />
+                            <asp:CompareValidator ID="cvEmail" runat="server" ControlToValidate="Email" ValueToCompare="mike@successfulstore.com"
+                                CssClass="text-danger" ErrorMessage="Please enter a valid user email." />
                         </div>
                     </div>
                     <div class="form-group">
