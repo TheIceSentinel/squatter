@@ -23,7 +23,7 @@ namespace Squatter.Account
             if (IsValid)
             {
                 // Validate the user password
-                
+                Session["UserLogin"] = "1";
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
@@ -34,7 +34,6 @@ namespace Squatter.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        Session["UserLogin"] = true;
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
@@ -52,6 +51,7 @@ namespace Squatter.Account
                         ErrorMessage.Visible = true;
                         break;
                 }
+                Response.Redirect("~/Default.aspx");
             }
         }
     }

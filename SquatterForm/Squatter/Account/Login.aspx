@@ -29,6 +29,8 @@
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+                             <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="Password" ValueToCompare="Password2"
+                                CssClass="text-danger" ErrorMessage="Please enter a valid user password." />
                         </div>
                     </div>
                     <div class="form-group">
@@ -41,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" PostBackUrl="~/Default.aspx" />
+                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
                         </div>
                     </div>
                 </div>

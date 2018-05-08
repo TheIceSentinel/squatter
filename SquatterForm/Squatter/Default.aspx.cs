@@ -11,6 +11,13 @@ namespace Squatter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if(Session["UserLogin"] == null)
+                {
+                    Response.Redirect("Account/Login");
+                }
+            }
         }
     }
 }
